@@ -1,5 +1,5 @@
 Sprint 1: Project Initiation
- create GitHub repository in ksu-is organization
+ -[x] create GitHub repository in ksu-is organization
  Initialize README.md with project description
  Search for related Python repositories for evaluation
  Clone and attempt to run an existing codebase:(https://github.com/ksu-is/Text-Adventure-Game/blob/main/%23%20Text%20Adventure%20Game%20by%20Gabriela%20Alvare.py)
