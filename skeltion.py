@@ -1,5 +1,3 @@
-# Text Adventure Game
-
 def show_instructions():
     print("""
 Adventure Game
