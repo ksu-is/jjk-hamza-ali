@@ -7,5 +7,7 @@ Sprint 1: Project Initiation
   - [x] I cloned then ran it in Visual Studio Code
   - [x] It didn’t give me any errors, but the input for the text adventure game would not push me to the next phase and I would get stuck in a loop
   - [x] I need to check why this loop keeps occurring and why it doesn’t allow you to move on to the next room
+  - [x] found out it was the instructions being unclear what was required the code works but can be worked on to be more clear
+  
 
 
