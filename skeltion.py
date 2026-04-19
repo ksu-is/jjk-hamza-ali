@@ -1,14 +1,15 @@
-# removed manual crouch 
-# worked on the cut scen for sukan how to expand the crouch comand to make it funner
-# better for the character
+# Changing the code and story line to matach up with the plot in shibuya incdent and fixed the starting room 
+# trying to implemnet a system where player can telport home betray their friends but for doing that they die 
 
- 
+
+
 def show_instructions():
     print ("""
-Adventure Game
+Shibuya Incident Adventure
+
 ==============
 Commands:
-go [north/south/east/west], run, crouch, exit
+go [north/south/east/west], run,  exit
 """ ) 
 
 def show_status():
@@ -17,7 +18,7 @@ def show_status():
 
 def show_room_prompt():
     directions = []
-    for d in ["north", "south", "east", "west"]:
+    for d in ["north", "south", "teleport", "west"]:
         if d in rooms[current_room]:
             directions.append(d)
             
@@ -33,70 +34,75 @@ def show_room_prompt():
 # ROOM DEFINITIONS
 # -------------------------
 rooms = {
-    "Forest": {
-        "north": "River",
-        "east": "ATV Cave",
-        "text": "You wake up groggy in a dark forest. Primal grunts echo around you... something is chasing you."
+    "Shibuya Crossing": {
+        "north": "Station Entrance",
+        "teleport ": "Portal Home",
+        "text": "You wake up in  Shibuya Crossing. Sirens blaring and  civilians screaming with a sweral of and cursed energy filing  the air hearing the unthinkable Gojo sator has been seeled. \n Head [north] so i can go to [north] to the station to find Save Gojo \n or i can [teleport] back home while pissing a way my honor my honer away "
     },
-    "River": {
-        "text": "You reach a rushing river. Zombies are closing in. A small boat is tied to a post. You must use it to escape!",
-        "north": "Ocean",
-        "east": "ATV Cave",
-        "south": "Waterfall Drop"
+    "Station Entrance": {
+        "text": "You reach the entrance of Shibuya Station. The pressure feels off. \n You think i can head north underground can [telport ]",
+        "north": "Underground Platform",
+        "teleport ": "Portal Home",
+        "south": "Flooded Tunnel"
     },
-   
-    "Ocean": {
-        "text": "You row into open water. The zombies cannot reach you here.",
-        "north": "Deep Sea",
-        "south": "Waterfall Drop",
-        "east": "ATV Cave"
-    },
-    "Deep Sea": {
-        "text": "You dive below the shimmering water. A glowing golden key rests on the ocean floor.",
-        "east": "ATV Cave",
-        "west": "Sea West"
-    },
-    "Sea West": {
-        "text": "The current tugs you toward a deafening roar of water.",
-        "south": "Waterfall Drop",
-        "east": "ATV Cave"},
-    
 
-    
-    "Waterfall Drop": {
-        "text": "You crash into the pool at the base of the waterfall! Zombies are surrounding the rocks — you must move quietly!",
-        "west": "Civilization Path",
-        "south": "Quiet Waterfall",
+    "Underground Platform": {
+        "text": "You step onto a dark underground platform. The lights flicker above you, and distant footsteps echo through the station.",
+        "north": "Deep Tunnel",
+        "south": "Flooded Tunnel",
+        "east": "Portal Home"
+    },
+
+    "Deep Tunnel": {
+        "text": "You move deeper into the station tunnels. The walls shake, and cursed energy grows heavier with every step.",
+        "east": "Portal Home",
+        "west": "Service Corridor"
+    },
+
+    "Service Corridor": {
+        "text": "A narrow service corridor runs beside broken train lines. The concrete is cracked, and the silence feels unnatural.",
+        "south": "Flooded Tunnel",
+        "east": "Portal Home"
+    },
+
+    "Flooded Tunnel": {
+        "text": "You are thrown into a flooded tunnel beneath Shibuya. Water crashes around your legs as danger closes in.",
+        "west": "Escape Route",
+        "south": "Hidden Shelter",
         "requires_crouch": True
     },
 
-    "Civilization Path": {
-        "text": "You are on rocky ground after the fall. Smoke rises from a town to the west. The waterfall roars to the south.",
-        "west": "Mountain Town",
-        "south": "Quiet Waterfall"
+    "Escape Route": {
+        "text": "You crawl into a damaged escape route lit only by emergency lights. A way out may be close.",
+        "west": "Tokyo Street Exit",
+        "south": "Hidden Shelter"
     },
 
-    "Quiet Waterfall": {
-        "text": "Behind the waterfall you find a father and daughter — Joel and Ellie — hiding in silence.",
-        "east": "ATV Cave",
+    "Hidden Shelter": {
+        "text": "Behind a broken wall, you find a hidden shelter where survivors are staying completely silent.",
+        "east": "Portal Home",
         "special_actions": ["stay", "talk"]
     },
-    
-    "ATV Cave": {
-        "text": "Inside sits an ATV with a golden key slot. You hear zombies shrieking outside the cave entrance."
+
+    "Portal Home": {
+         
+        
+         
     },
 
-    "Mountain Town": {
-        "text": "You reach civilization. People pull you to safety. You made it! 🏆",
+    "Tokyo Street Exit": {
+        "text": "You break through the final barrier and escape onto the outer streets of Tokyo. You survived Shibuya. 🏆",
         "end": True
-        
     }
+    
 }
+
+        
 
 # -------------------------
 # STARTING CONDITIONS
 # -------------------------
-current_room = "Forest"
+current_room = "Shibuya Crossing"
 
 # -------------------------
 # CROUCH PUZZLE FUNCTION 
@@ -209,7 +215,8 @@ while True:
     # -------------------------
     # ATV CAVE DEATH WITHOUT KEY
     # -------------------------
-    if current_room == "ATV Cave":
-        print("\nZombies pile into the cave—without a key, the ATV is useless.")
+    if current_room == "Portal Home":
+        print("You feel somthing sinester in your living room as you enter ")
+        print("A cursed spirt bits your head.")
         print("GAME OVER 💀")
         break
