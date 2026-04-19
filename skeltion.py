@@ -1,10 +1,13 @@
+# i remmoved the boat secition to  / the logic for it so that it can be pushed through out 
+# removing exsees rooms and making it more structurly sound better 
+# changed how the rooms are set up and how the movement between works 
 def show_instructions():
     print ("""
 Adventure Game
 ==============
 Commands:
 go [north/south/east/west], run, crouch, exit
-""") 
+""" ) 
 
 def show_status():
     print("---------------------------")
@@ -15,6 +18,7 @@ def show_room_prompt():
     for d in ["north", "south", "east", "west"]:
         if d in rooms[current_room]:
             directions.append(d)
+            
     if directions:
         print("You sense paths:", ", ".join(directions))
 
@@ -29,7 +33,7 @@ def show_room_prompt():
 rooms = {
     "Forest": {
         "north": "River",
-        "east": "Cave",
+        "east": "ATV Cave",
         "text": "You wake up groggy in a dark forest. Primal grunts echo around you... something is chasing you."
     },
     "River": {
@@ -38,10 +42,7 @@ rooms = {
         "east": "ATV Cave",
         "south": "Waterfall Drop"
     },
-    "Cave": {
-        "west": "Forest",
-        "text": "You stumble into a dim cave. Gold glitters on the ground.",
-    },
+   
     "Ocean": {
         "text": "You row into open water. The zombies cannot reach you here.",
         "north": "Deep Sea",
@@ -50,22 +51,18 @@ rooms = {
     },
     "Deep Sea": {
         "text": "You dive below the shimmering water. A glowing golden key rests on the ocean floor.",
-        "south": "Ocean",
-        "east": "Sea East",
+        "east": "ATV Cave",
         "west": "Sea West"
     },
-    "Sea East": {
-        "text": "The water grows shallow near rocks and shadowy shapes move inland.",
-        "east": "ATV Cave",
-        "west": "Deep Sea"
-    },
+    
+    #die 
     "ATV Cave": {
         "text": "Inside sits an ATV with a golden key slot. You hear zombies shrieking outside the cave entrance."
     },
     "Sea West": {
         "text": "The current tugs you toward a deafening roar of water.",
         "south": "Waterfall Drop",
-        "east": "Deep Sea"
+        "east": "ATV Cave"
     },
 
     
@@ -89,7 +86,6 @@ rooms = {
     },
 
     "Mountain Town": {
-       "requires crouch: True"
         "text": "You reach civilization. People pull you to safety. You made it! 🏆",
         "end": True
     }
@@ -127,9 +123,9 @@ def run_crouch_check():
             print("Zombies swarm you. GAME OVER 💀")
             return False
 
-# -------------------------
+# --------------------
 # GAME START
-# -------------------------
+# --------------------
 show_instructions()
 
 while True:
@@ -166,10 +162,8 @@ while True:
                 print("YOU WIN!\n")
                 break
             elif action == "talk":
-                print("\nYou whisper to Joel and Ellie. They thank you for staying quiet.")
-                continue
-
-    # -------------------------
+                print("A cursed spirt jumps up and kills you ")
+                break     # -------------------------
     # MOVEMENT
     # -------------------------
     if action == "go":
@@ -178,10 +172,7 @@ while True:
             continue
 
         direction = move[1]
-
-        if current_room == "River" and not used_boat:
-            print("You can't swim across! You must 'use boat'.\n")
-            continue
+            
 
         if direction in rooms[current_room]:
             current_room = rooms[current_room][direction]
@@ -194,6 +185,7 @@ while True:
     # -------------------------
     # MANUAL CROUCH
     # -------------------------
+    
     elif action == "crouch":
         print("\nTo move quietly, answer this:")
         ans = input("Square root of 64? ").strip()
