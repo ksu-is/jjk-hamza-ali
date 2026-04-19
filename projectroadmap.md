@@ -11,7 +11,7 @@ Sprint 1: Project Initiation
 
 Part: 2 
  
- - [ ] Phase 1
+ - [x] Phase 1
  
 Simplify the old game:
 remove items
@@ -19,14 +19,20 @@ remove special actions
 remove extra rooms
 keep only movement + ending
  
-- [ ] Phase 2
+Phase 2 
+- go to make the story more linear and structurly sound  
+- made it to where if you go to the  wrong direction you die
 
+- [ x] 
+
+- Phase 3
 Replace crouch puzzle with cutscene questions
 and pop up question have to awnser 
 
-- [ ] Phase 3
+- [x ] 
 
-Add the “stay too long and die” system
+
+
 
 - [ ] Phase 4
 Rewrite all room names and story text into Shibuya style
@@ -36,6 +42,6 @@ Phase 5
 - [ ] Add text-based cutscene descriptions or ASCII art
   
 phase 6 
-marvel 
+
 
 

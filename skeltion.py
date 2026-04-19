@@ -1,6 +1,8 @@
-# i remmoved the boat secition to  / the logic for it so that it can be pushed through out 
-# removing exsees rooms and making it more structurly sound better 
-# changed how the rooms are set up and how the movement between works 
+# removed manual crouch 
+# worked on the cut scen for sukan how to expand the crouch comand to make it funner
+# better for the character
+
+ 
 def show_instructions():
     print ("""
 Adventure Game
@@ -54,16 +56,11 @@ rooms = {
         "east": "ATV Cave",
         "west": "Sea West"
     },
-    
-    #die 
-    "ATV Cave": {
-        "text": "Inside sits an ATV with a golden key slot. You hear zombies shrieking outside the cave entrance."
-    },
     "Sea West": {
         "text": "The current tugs you toward a deafening roar of water.",
         "south": "Waterfall Drop",
-        "east": "ATV Cave"
-    },
+        "east": "ATV Cave"},
+    
 
     
     "Waterfall Drop": {
@@ -81,13 +78,18 @@ rooms = {
 
     "Quiet Waterfall": {
         "text": "Behind the waterfall you find a father and daughter — Joel and Ellie — hiding in silence.",
-        "east": "Civilization Path",
+        "east": "ATV Cave",
         "special_actions": ["stay", "talk"]
+    },
+    
+    "ATV Cave": {
+        "text": "Inside sits an ATV with a golden key slot. You hear zombies shrieking outside the cave entrance."
     },
 
     "Mountain Town": {
         "text": "You reach civilization. People pull you to safety. You made it! 🏆",
         "end": True
+        
     }
 }
 
@@ -100,28 +102,30 @@ current_room = "Forest"
 # CROUCH PUZZLE FUNCTION 
 # -------------------------
 def run_crouch_check():
-    """
-    Forces crouch + math check before the player can move.
-    FIXED: Sets crouched flag BEFORE room redraw so directions don't vanish.
-    """
     while True:
-        cmd = input("You must crouch to proceed (type 'crouch'): ").strip().lower()
+        cmd = input("You must crouch. Type 'crouch': ").strip().lower()
 
         if cmd != "crouch":
-            print("You must crouch here to sneak past the zombies.")
-            continue
-
-        print("\nTo move silently, answer this:")
-        ans = input("What is the square root of 64? ").strip()
-
-        if ans == "8":
-            print("\nYou crouch low and move without a sound...")
-            rooms[current_room]["crouched"] = True   # ⭐ FIXED
-            return True
-        else:
-            print("\nCRACK! You stepped on a branch.")
-            print("Zombies swarm you. GAME OVER 💀")
+            print("You hesitate and Sukuna slashes you. GAME OVER 💀")
             return False
+
+        print("Sukuna joins the battlefield.")
+        print("Your two choices are: Lower_Head or Run")
+        ans = input("Sukan \n  Your head is a bit high: ").strip()
+
+        if ans == "Lower_Head":
+            ans2 = input("Sukan speaks \n What is 9 + 10? 19 or 21: ").strip()
+            if ans2 == "21":
+                print("You are pushed further into the waterfall.")
+                rooms[current_room]["crouched"] = True
+                return True
+            else:
+                print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
+                return False
+        else:
+            print("Sukuna hits you with a cleave 💀")
+            return False
+
 
 # --------------------
 # GAME START
@@ -183,18 +187,7 @@ while True:
     # removed item and boat 
     
     # -------------------------
-    # MANUAL CROUCH
-    # -------------------------
     
-    elif action == "crouch":
-        print("\nTo move quietly, answer this:")
-        ans = input("Square root of 64? ").strip()
-        if ans == "8":
-            print("You crouch silently.\n")
-            rooms[current_room]["crouched"] = True
-        else:
-            print("CRUNCH! Zombies hear you. GAME OVER 💀")
-            break
 
     # -------------------------
     # RUN OPTION
