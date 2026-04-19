@@ -1,5 +1,5 @@
 def show_instructions():
-    print("""
+    print ("""
 Adventure Game
 ==============
 Commands:
@@ -10,7 +10,7 @@ Note: 'stay' is a special action available in some rooms (e.g., Quiet Waterfall)
 def show_status():
     print("---------------------------")
     print("You are in the", current_room)
-    print("Inventory:", inventory)
+    
     if "item" in rooms[current_room]:
         print("You see a", rooms[current_room]["item"])
     print("---------------------------")
@@ -46,7 +46,6 @@ rooms = {
     "Cave": {
         "west": "Forest",
         "text": "You stumble into a dim cave. Gold glitters on the ground.",
-        "item": "gold"
     },
     "Ocean": {
         "text": "You row into open water. The zombies cannot reach you here.",
@@ -56,7 +55,6 @@ rooms = {
     },
     "Deep Sea": {
         "text": "You dive below the shimmering water. A glowing golden key rests on the ocean floor.",
-        "item": "gold_key",
         "south": "Ocean",
         "east": "Sea East",
         "west": "Sea West"
@@ -106,8 +104,6 @@ rooms = {
 # STARTING CONDITIONS
 # -------------------------
 current_room = "Forest"
-inventory = []
-used_boat = False
 
 # -------------------------
 # CROUCH PUZZLE FUNCTION 
@@ -198,47 +194,8 @@ while True:
             print("You can't go that way.\n")
 
     # -------------------------
-    # GET ITEM
-    # -------------------------
-    elif action == "get":
-        if len(move) < 2:
-            print("Get what?\n")
-            continue
-        item = move[1]
-        if "item" in rooms[current_room] and rooms[current_room]["item"] == item:
-            inventory.append(item)
-            print(f"You picked up the {item}!\n")
-            del rooms[current_room]["item"]
-        else:
-            print("You can't get that.\n")
-
-    # -------------------------
-    # USE ITEMS
-    # -------------------------
-    elif action == "use":
-        if len(move) < 2:
-            print("Use what?\n")
-            continue
-        item = move[1]
-
-        if item == "boat" and current_room == "River":
-            print("You leap into the boat just in time and row to safety!\n")
-            used_boat = True
-            current_room = "Ocean"
-
-        elif item == "gold_key" and current_room == "ATV Cave":
-            if "gold_key" in inventory:
-                print("\nThe ATV roars to life! You blast through the horde and escape!")
-                if "gold" in inventory:
-                    print("You escape rich. YOU WIN! 🏆")
-                else:
-                    print("You survive the apocalypse. YOU WIN! 🏆")
-                break
-            else:
-                print("You don't have the key!\n")
-        else:
-            print("You can't use that here.\n")
-
+    # removed item and boat 
+    
     # -------------------------
     # MANUAL CROUCH
     # -------------------------
@@ -258,7 +215,7 @@ while True:
     elif action == "run" and current_room == "Civilization Path":
         print("\nYou sprint but the zombies are faster. GAME OVER 💀")
         break
-
+    
     # -------------------------
     # EXIT GAME
     # -------------------------
@@ -272,7 +229,7 @@ while True:
     # -------------------------
     # ATV CAVE DEATH WITHOUT KEY
     # -------------------------
-    if current_room == "ATV Cave" and "gold_key" not in inventory:
+    if current_room == "ATV Cave":
         print("\nZombies pile into the cave—without a key, the ATV is useless.")
         print("GAME OVER 💀")
         break
