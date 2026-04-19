@@ -3,17 +3,12 @@ def show_instructions():
 Adventure Game
 ==============
 Commands:
-go [north/south/east/west], get [item], use [item], run, crouch, stay, exit
-Note: 'stay' is a special action available in some rooms (e.g., Quiet Waterfall).
-""")
+go [north/south/east/west], run, crouch, exit
+""") 
 
 def show_status():
     print("---------------------------")
     print("You are in the", current_room)
-    
-    if "item" in rooms[current_room]:
-        print("You see a", rooms[current_room]["item"])
-    print("---------------------------")
 
 def show_room_prompt():
     directions = []
