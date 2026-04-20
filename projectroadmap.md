@@ -55,6 +55,13 @@ phase 6
 
 Done
 
+phase 7
+fixed error that would break the game as you typed run for one of the options
+rewriting the script differentating somthing away 
+i added  -------- through code so it made the action more flowy
+ i  fix the formate for hidden shelter
+
+
 - [ ] Add text-based cutscene descriptions or ASCII art
   
 phase 6 

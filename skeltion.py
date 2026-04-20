@@ -1,7 +1,8 @@
+ 
 
-# i want to now make multiple rooms 
-# flesh out the story direction and make another cutsceen 
 # i also want it to be a bit more sinster and add back the cut sceen 
+
+
 
  
 # making a new room after the cut scean to send the player to so it dosnt loop the same thign s
@@ -100,14 +101,13 @@ rooms = {
     
 
     "Escape Route": {
-        "text": "You crawl into a damaged Escape Route lit only by emergency lights.\nYou can go [west] to the Tokyo Street Exit.\nOr you can go [south] to the Hidden Shelter.",
+        "text": " Seconds before Sukan laughs as he kicks you into the escape rout two floors above where you were \n as you crawl into a damaged Escape Route bleeding out  \nYou can retreate and  go [west] to the Tokyo Street Exit.\nOr you can go [south] to the Hidden Shelter where gojo might be located",
         "west": "Tokyo Street Exit",
         "south": "Hidden Shelter"
     },
 
     "Hidden Shelter": {
-        "text": "Behind a broken wall, you find a Hidden Shelter where survivors are staying completely silent.\nYou can [stay] with them and remain hidden.\nYou can [talk] and risk making noise.\nOr you can go [teleport] back home.",
-        "teleport": "Portal Home",
+        "text": "Behind a broken wall, you find a Hidden Shelter and find box the carriers the essces to Satoru Gojo /n but for now since gojo is the honered one his bound to his location \n you can  [stay] with saturo  gojo and wait till he if ever becomes unbound or .\nYou can [talk]  risking alerting cursed spirts trying to use cursed speach  making to break the barrier noise. ",
         "special_actions": ["stay", "talk"]
     },
 
@@ -138,30 +138,28 @@ current_room = "Shibuya Crossing"
 def run_crouch_check():
     while True:
         cmd = input("You feel sukan presents forgot about your sensed path you must now  'crouch': ").strip().lower()
+        print(" \n\n---------------------------")
 
         if cmd != "crouch":
             print("You hesitate and Sukuna slashes you. GAME OVER 💀")
             return False
 
-        print("Sukuna joins the battlefield.")
-        print("Sukan speaks \n  Your head is a bit high")
+        print("Sukuna appears. You can hardly breathe as his overwhelmingly evil presence peers into your soul..")
+        print("Sukan speaks \nYour head is a bit high")
         ans = input("Your two choices are: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
-            ans2 = input("Sukan speaks \n What is 9 + 10? 19 or 21: ").strip()
+            ans2 = input("Sukan speaks \nWhat is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
                 print("You can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.")
                 rooms[current_room]["crouched"] = True
                 return "Escape Route"
-                
-             
-            
             else:
                 print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
                 return False
         else:
             print("Sukuna hits you with a cleave 💀")
-            return False
+            break
 
 
 # --------------------
@@ -201,14 +199,15 @@ while True:
     # SPECIAL ACTIONS
     # -------------------------
     if action in rooms[current_room].get("special_actions", []):
-        if current_room == "Quiet Waterfall":
+        if current_room == "Hidden Shelter":
             if action == "stay":
-                print("\nJoel nods approvingly. Ellie hands you a carved wooden trophy.")
-                print("You earned the Joel & Ellie Trophy! 🏆")
+                print("---------------------------\n Gojo pops out the cursed object now unbound go in shibuya and kill sukan  .")
+                print("You pass out thinking you saved everyone and now can rest ")
                 print("YOU WIN!\n")
                 break
-            elif action == "talk":
+            else:
                 print("A cursed spirt jumps up and kills you ")
+                print("seconds later gojo then pops out ")
                 break     # -------------------------
     # MOVEMENT
     # -------------------------
