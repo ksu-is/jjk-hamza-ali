@@ -49,6 +49,11 @@ Phase 5
 Done 
 
 
+phase 6
+# i need to fix the loop error for the cut sceen 
+# i need to add the cut scean to where it push u to a new room 
+
+Done
 
 - [ ] Add text-based cutscene descriptions or ASCII art
   

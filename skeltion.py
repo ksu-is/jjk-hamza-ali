@@ -1,5 +1,11 @@
 
-# 
+# i want to now make multiple rooms 
+# flesh out the story direction and make another cutsceen 
+# i also want it to be a bit more sinster and add back the cut sceen 
+
+ 
+# making a new room after the cut scean to send the player to so it dosnt loop the same thign s
+# now its looping have to find the problem 
 # 
 # two broken lines is the crouch optiion  i want to make it so the crouch option puts you into a new room 
 
@@ -81,15 +87,17 @@ rooms = {
     "Service Corridor": {
         "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can go [teleport] back home.",
         "south": "Flooded Tunnel",
-        "telport": "Portal Home"
+        "teleport": "Portal Home"
     },
 
     "Flooded Tunnel": {
-        "text": "You are thrown into a Flooded Tunnel beneath Shibuya. Water crashes around your legs as danger closes in.\nYou can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.",
+        "text": "-",
         "west": "Escape Route",
         "south": "Hidden Shelter",
         "requires_crouch": True
     },
+    
+    
 
     "Escape Route": {
         "text": "You crawl into a damaged Escape Route lit only by emergency lights.\nYou can go [west] to the Tokyo Street Exit.\nOr you can go [south] to the Hidden Shelter.",
@@ -104,6 +112,7 @@ rooms = {
     },
 
     "Portal Home": {
+        "text": " feels off"
            
          
     },
@@ -128,22 +137,25 @@ current_room = "Shibuya Crossing"
 # -------------------------
 def run_crouch_check():
     while True:
-        cmd = input("You feel sukan presents you must 'crouch': ").strip().lower()
+        cmd = input("You feel sukan presents forgot about your sensed path you must now  'crouch': ").strip().lower()
 
         if cmd != "crouch":
             print("You hesitate and Sukuna slashes you. GAME OVER 💀")
             return False
 
         print("Sukuna joins the battlefield.")
-        print("Your two choices are: lower_head or Run")
-        ans = input("Sukan \n  Your head is a bit high: ").strip().lower()
+        print("Sukan speaks \n  Your head is a bit high")
+        ans = input("Your two choices are: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
             ans2 = input("Sukan speaks \n What is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
-                print("You are pushed further into the waterfall.")
+                print("You can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.")
                 rooms[current_room]["crouched"] = True
-                return True
+                return "Escape Route"
+                
+             
+            
             else:
                 print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
                 return False
@@ -164,9 +176,15 @@ while True:
 
 
     if rooms[current_room].get("requires_crouch") and not rooms[current_room].get("crouched"):
-        if not run_crouch_check():
+       new_room = run_crouch_check()
+       if new_room is None:
             break
-        continue
+       current_room = new_room
+       continue
+
+
+
+
 
     #  END GAME WHEN REACHING MOUNTAIN TOWN
     if rooms[current_room].get("end"):
