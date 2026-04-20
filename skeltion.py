@@ -1,4 +1,5 @@
-# also  create diffrent rooms and make 
+
+
 #expand the game logic and make it a puzzel more like a puzzel, 
 # also  create diffrent rooms and make 
 # make it slightly like a maze
@@ -78,7 +79,7 @@ rooms = {
         
     },
     
-    ""
+    
 
     "Flooded Tunnel": {
         "text": "-",
@@ -164,15 +165,24 @@ def run_crouch_check():
 
         print("Sukuna appears. You can hardly breathe \nhis overwhelmingly evil presence peers into your soul..")
         print("Sukan speaks menecingly\nYour head is a bit high")
-        ans = ("Your can: lower_head or Run: ").strip().lower()
+        ans = ("\n--------------------------- \nYour can: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
             ans2 = input("Sukan speaks \nWhat is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
-                ans3 = input("who would win Saturo Gojo or")
-                print("You can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.")
-                rooms[current_room]["crouched"] = True
-                return "Escape Route"
+                ans3 = input("Sukan speaks \n who would win Saturo Gojo or Sukan:").lower()
+                if ans3 == "Sukan":
+                    ans4 = input("Sukan speaks \n How many dragon balls are their 1,2,3,4,5,6 or 7")
+                    if ans4 == "7": 
+                    rooms[current_room]["crouched"] = True
+                    return "Escape Route"
+                
+                    else:
+                        print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
+                        return False
+                else:
+                    print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
+                    return False
             else:
                 print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
                 return False

@@ -66,3 +66,13 @@ phase 8
 # i fixed the structuring and blocking for the text in the game
 # fix some spacing when it gives you instructions to be scentered 
 # now it should run 
+
+phase 9
+#expand the game logic and make it a puzzel more like a puzzel, 
+# expanded the game logic to include 
+
+phase 10 
+# expanded the game logic to where 
+# theirs now 4 questions that are asked 
+# but i ran into an error with the with code i fix 
+# i did this to make the game more interactive
