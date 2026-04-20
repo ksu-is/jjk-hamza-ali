@@ -1,3 +1,5 @@
+# fix the errors i cause d
+
 
 
 #expand the game logic and make it a puzzel more like a puzzel, 
@@ -165,30 +167,30 @@ def run_crouch_check():
 
         print("Sukuna appears. You can hardly breathe \nhis overwhelmingly evil presence peers into your soul..")
         print("Sukan speaks menecingly\nYour head is a bit high")
-        ans = ("\n--------------------------- \nYour can: lower_head or Run: ").strip().lower()
+        ans = input("\n--------------------------- \nYour can: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
             ans2 = input("Sukan speaks \nWhat is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
                 ans3 = input("Sukan speaks \n who would win Saturo Gojo or Sukan:").lower()
-                if ans3 == "Sukan":
+                if ans3 == "sukan":
                     ans4 = input("Sukan speaks \n How many dragon balls are their 1,2,3,4,5,6 or 7")
                     if ans4 == "7": 
-                    rooms[current_room]["crouched"] = True
-                    return "Escape Route"
+                        rooms[current_room]["crouched"] = True
+                        return "Escape Route"
                 
                     else:
                         print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                        return False
+                        None 
                 else:
                     print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                    return False
+                    None
             else:
                 print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                return False
+                None
         else:
             print("Sukuna hits you with a cleave 💀")
-            break
+            None
 
 
 # --------------------

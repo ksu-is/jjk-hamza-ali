@@ -76,3 +76,10 @@ phase 10
 # theirs now 4 questions that are asked 
 # but i ran into an error with the with code i fix 
 # i did this to make the game more interactive
+
+
+phase 11 
+fix the error that caused the 4 question not to run 
+one was a spacing error  another was an error where the their wasnt enough indentation
+a upper lowercase error 
+changing breaks to none
