@@ -62,8 +62,7 @@ i added  -------- through code so it made the action more flowy
  i  fix the formate for hidden shelter
 
 
-- [ ] Add text-based cutscene descriptions or ASCII art
-  
-phase 6 
-
-
+phase 8 
+# i fixed the structuring and blocking for the text in the game
+# fix some spacing when it gives you instructions to be scentered 
+# now it should run 

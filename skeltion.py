@@ -1,4 +1,6 @@
- 
+# i fixed the structuring and blocking for the text in the game
+# fix some spacing when it gives you instructions to be scentered 
+# now it should run 
 
 # i also want it to be a bit more sinster and add back the cut sceen 
 
@@ -101,13 +103,13 @@ rooms = {
     
 
     "Escape Route": {
-        "text": " Seconds before Sukan laughs as he kicks you into the escape rout two floors above where you were \n as you crawl into a damaged Escape Route bleeding out  \nYou can retreate and  go [west] to the Tokyo Street Exit.\nOr you can go [south] to the Hidden Shelter where gojo might be located",
+        "text": "Seconds before Sukan laughs as he kicks you out of the Tunnel, above into the Escape Route two floors above where you were \nbleeding out you crawl knowing you can retreat \ngo [west] to the Tokyo Street Exit.\ngo [south] to the Hidden Shelter where Gojo might be located",
         "west": "Tokyo Street Exit",
         "south": "Hidden Shelter"
     },
 
     "Hidden Shelter": {
-        "text": "Behind a broken wall, you find a Hidden Shelter and find box the carriers the essces to Satoru Gojo /n but for now since gojo is the honered one his bound to his location \n you can  [stay] with saturo  gojo and wait till he if ever becomes unbound or .\nYou can [talk]  risking alerting cursed spirts trying to use cursed speach  making to break the barrier noise. ",
+        "text": "Behind a broken wall, you find the box carriers the esscents of Satoru Gojo /nbut since he's Saturo Gojo he is bound and cannot be moved from his current location \nyou can [stay] and wait and see if he breaks out on his own \nor You can [talk] risking alerting cursed spirts trying to use cursed speach to break the barrier",
         "special_actions": ["stay", "talk"]
     },
 
@@ -144,9 +146,9 @@ def run_crouch_check():
             print("You hesitate and Sukuna slashes you. GAME OVER 💀")
             return False
 
-        print("Sukuna appears. You can hardly breathe as his overwhelmingly evil presence peers into your soul..")
-        print("Sukan speaks \nYour head is a bit high")
-        ans = input("Your two choices are: lower_head or Run: ").strip().lower()
+        print("Sukuna appears. You can hardly breathe \nhis overwhelmingly evil presence peers into your soul..")
+        print("Sukan speaks menecingly\nYour head is a bit high")
+        ans = input("Your can: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
             ans2 = input("Sukan speaks \nWhat is 9 + 10? 19 or 21: ").strip()
@@ -201,7 +203,7 @@ while True:
     if action in rooms[current_room].get("special_actions", []):
         if current_room == "Hidden Shelter":
             if action == "stay":
-                print("---------------------------\n Gojo pops out the cursed object now unbound go in shibuya and kill sukan  .")
+                print("---------------------------\nGojo pops out the cursed object now unbound go in shibuya and kill sukan  .")
                 print("You pass out thinking you saved everyone and now can rest ")
                 print("YOU WIN!\n")
                 break
