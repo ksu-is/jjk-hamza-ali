@@ -1,27 +1,10 @@
-# i fixed the structuring and blocking for the text in the game
-# fix some spacing when it gives you instructions to be scentered 
-# now it should run 
-
-# i also want it to be a bit more sinster and add back the cut sceen 
-
-
-
+# also  create diffrent rooms and make 
+#expand the game logic and make it a puzzel more like a puzzel, 
+# also  create diffrent rooms and make 
+# make it slightly like a maze
+# Make an edding cut sceen 
+#Try and make pictures 
  
-# making a new room after the cut scean to send the player to so it dosnt loop the same thign s
-# now its looping have to find the problem 
-# 
-# two broken lines is the crouch optiion  i want to make it so the crouch option puts you into a new room 
-
-
-# and the specality rooms
-
-# i need to fix the teleport option 
-# need to fix the crouch options 
-#need to fix the  ---- how spacing works and looks
-# need to make it more puzzel like for the options understand the flow for the puzze 
-#  dsd dwdwdd  d sds      sdds
-
-
 
 
 
@@ -62,7 +45,8 @@ rooms = {
     "Shibuya Crossing": {
         "north": "Station Entrance",
         "teleport": "Portal Home",
-        "text":"cursed spirts are everywhere and Satoru Gojo has been seeled. \nyou can go [north] to the Station to Save Gojo \nor you can go [teleport] back home if your to scared"
+        "east": "Death Room",
+        "text": "cursed spirts are everywhere you hear Satoru Gojo has been seeled. \nyou can go [north] to the Station to Save Gojo \nor you can go [teleport] back home if your to scared"
 
     },
     "Station Entrance": {
@@ -90,8 +74,11 @@ rooms = {
     "Service Corridor": {
         "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can go [teleport] back home.",
         "south": "Flooded Tunnel",
-        "teleport": "Portal Home"
+        "teleport": "Portal Home",
+        
     },
+    
+    ""
 
     "Flooded Tunnel": {
         "text": "-",
@@ -103,7 +90,7 @@ rooms = {
     
 
     "Escape Route": {
-        "text": "Seconds before Sukan laughs as he kicks you out of the Tunnel, above into the Escape Route two floors above where you were \nbleeding out you crawl knowing you can retreat \ngo [west] to the Tokyo Street Exit.\ngo [south] to the Hidden Shelter where Gojo might be located",
+        "text": "Seconds before Sukan laughs as he kicks you out of the Tunnel, above into the Escape Route two floors above \nbleeding you crawl knowing you can retreat \ngo [west] to the Tokyo Street Exit.\ngo [south] to the Hidden Shelter where Gojo might be located",
         "west": "Tokyo Street Exit",
         "south": "Hidden Shelter"
     },
@@ -115,8 +102,35 @@ rooms = {
 
     "Portal Home": {
         "text": " feels off"
+    },
+    "Unflooded Tunnel": {
+    "text": "You reach an unflooded tunnel where the water suddenly stops somxthing feels off.\nYou can go [north] deeper into the dry passage.\nOr you can go [south] into the Flooxxxed tunxxxnel.",
+    "north": "Broken Passage",
+    "south": "Flooded Tunnel"
+    },
+
+    "Broken Passage": {
+    "text": "The dry tunnel shows its ware and tare with the cracks and blood displayed on the  walls .\nYou can go [east] into a Shadow Hall.\nOr you can go [south] back to the Unflooded Tunnel.",
+    "east": "Shadow Hall",
+    "south": "Unflooded Tunnel"
+    },
+
+    "Shadow Hall": {
+    "text": "The hallway is dark and silent. Your footsteps echo into the dark as if  someone is following.\nYou can go [east] into the Cursed Loop.\nOr you can go [west] back to the Broken Passage.",
+    "east": "Cursed passage",
+    "west": "Broken Passage"
+    },
+
+    "Cursed Loop": {
+    "text": "You swear you have seen these same cracks before. The tunnel is looping on itself.\nYou can go [west] back to the Shadow Hall.\nOr you can go [north] to the Broken Passage.",
+    "west": "Shadow Hall",
+    "north": "Broken Passage"
+    },
+    
+    
+    "Death Room": {
+        "text": "something feels off"
            
-         
     },
 
     "Tokyo Street Exit": {
@@ -127,8 +141,10 @@ rooms = {
 }
 
 
-        
 
+
+
+   
 # -------------------------
 # STARTING CONDITIONS
 # -------------------------
@@ -148,11 +164,12 @@ def run_crouch_check():
 
         print("Sukuna appears. You can hardly breathe \nhis overwhelmingly evil presence peers into your soul..")
         print("Sukan speaks menecingly\nYour head is a bit high")
-        ans = input("Your can: lower_head or Run: ").strip().lower()
+        ans = ("Your can: lower_head or Run: ").strip().lower()
 
         if ans == "lower_head":
             ans2 = input("Sukan speaks \nWhat is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
+                ans3 = input("who would win Saturo Gojo or")
                 print("You can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.")
                 rooms[current_room]["crouched"] = True
                 return "Escape Route"
@@ -252,5 +269,10 @@ while True:
     if current_room == "Portal Home":
         print("You feel somthing sinester in your living room as you enter ")
         print("A cursed spirt bits your head.")
+        print("GAME OVER 💀")
+        break
+    
+    elif current_room == "Death Room":
+        print("A cursed spirt jumps on your back and eats you")
         print("GAME OVER 💀")
         break
