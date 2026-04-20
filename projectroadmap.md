@@ -19,15 +19,18 @@ remove special actions
 remove extra rooms
 keep only movement + ending
  
+
+
 Phase 2 
 - go to make the story more linear and structurly sound  
 - made it to where if you go to the  wrong direction you die
+Done 
 
-- [x] 
 
 - Phase 3
 Replace crouch puzzle with cutscene questions
 and pop up question have to awnser 
+Done
 
 - [x] 
 
@@ -36,12 +39,19 @@ and pop up question have to awnser
 
 - [ ] Phase 4
 Rewrite all room names and story text into Shibuya style
+Done 
+
 
 Phase 5
+# i need to fix the start so its smillar other opotion
+# i need to add go to the option choices 
+# i need to fix the  ---- how spacing works and looks
+Done 
+
+
 
 - [ ] Add text-based cutscene descriptions or ASCII art
   
 phase 6 
-
 
 

@@ -1,10 +1,25 @@
-# fix the plot where you can now see before where the north south will take you and what your options are 
+
+# 
+# 
+# two broken lines is the crouch optiion  i want to make it so the crouch option puts you into a new room 
+
+
+# and the specality rooms
+
+# i need to fix the teleport option 
+# need to fix the crouch options 
+#need to fix the  ---- how spacing works and looks
+# need to make it more puzzel like for the options understand the flow for the puzze 
+#  dsd dwdwdd  d sds      sdds
+
+
 
 
 
 
 def show_instructions():
     print ("""
+           
 Shibuya Incident Adventure
 
 ==============
@@ -16,6 +31,7 @@ def show_status():
     print("---------------------------")
     print("You are in the", current_room)
 
+
 def show_room_prompt():
     directions = []
     for d in ["north", "south", "teleport", "west"]:
@@ -23,7 +39,7 @@ def show_room_prompt():
             directions.append(d)
             
     if directions:
-        print("You sense paths:", ", ".join(directions))
+        print("--- your sense paths:", ", ".join(directions))
 
     specials = rooms[current_room].get("special_actions", [])
     if specials:
@@ -37,11 +53,11 @@ rooms = {
     "Shibuya Crossing": {
         "north": "Station Entrance",
         "teleport": "Portal Home",
-        "text":"cursed spirts are everywhere and Satoru Gojo has been seeled. \nyou can Head [north] to the Station to Save Gojo \nor you can [teleport] back home if your to scared"
+        "text":"cursed spirts are everywhere and Satoru Gojo has been seeled. \nyou can go [north] to the Station to Save Gojo \nor you can go [teleport] back home if your to scared"
 
     },
     "Station Entrance": {
-        "text": "You stand at the Station Entrance and the pressure feels off.\nYou can go [north] deeper into the station toward the Underground Platform.\nYou can go [south] into the Flooded Tunnel.\nOr you can [teleport] back home.",
+        "text": "You stand at the Station Entrance and the pressure feels off.\nYou can go [north] deeper into the station toward the Underground Platform.\nYou can go [south] into the Flooded Tunnel.\nOr you can go [teleport] back home.",
         "north": "Underground Platform",
         "south": "Flooded Tunnel",
         "teleport": "Portal Home"
@@ -49,21 +65,21 @@ rooms = {
     },
 
     "Underground Platform": {
-        "text": "You step onto a dark Underground Platform. The lights flicker and distant footsteps echo through the station.\nYou can go [north] into the Deep Tunnel.\nYou can go [south] toward the Flooded Tunnel.\nOr you can [teleport] back home.",
+        "text": "You step onto a dark Underground Platform. The lights flicker and distant footsteps echo through the station.\nYou can go [north] into the Deep Tunnel.\nYou can go [south] toward the Flooded Tunnel.\nOr you can go [teleport] back home.",
         "north": "Deep Tunnel",
         "south": "Flooded Tunnel",
         "teleport": "Portal Home"
     },
 
     "Deep Tunnel": {
-        "text": "You move deeper into the station tunnels. The walls shake and cursed energy grows heavier with every step.\nYou can go [west] into the Service Corridor.\nOr you can [teleport] back home.",
+        "text": "You move deeper into the station tunnels. The walls shake and cursed energy grows heavier with every step.\nYou can go [west] into the Service Corridor.\nOr you can go [ teleport] back home.",
         "west": "Service Corridor",
         "teleport": "Portal Home"
 
     },
 
     "Service Corridor": {
-        "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can [teleport] back home.",
+        "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can go [teleport] back home.",
         "south": "Flooded Tunnel",
         "telport": "Portal Home"
     },
@@ -82,7 +98,7 @@ rooms = {
     },
 
     "Hidden Shelter": {
-        "text": "Behind a broken wall, you find a Hidden Shelter where survivors are staying completely silent.\nYou can [stay] with them and remain hidden.\nYou can [talk] and risk making noise.\nOr you can [teleport] back home.",
+        "text": "Behind a broken wall, you find a Hidden Shelter where survivors are staying completely silent.\nYou can [stay] with them and remain hidden.\nYou can [talk] and risk making noise.\nOr you can go [teleport] back home.",
         "teleport": "Portal Home",
         "special_actions": ["stay", "talk"]
     },
@@ -112,17 +128,17 @@ current_room = "Shibuya Crossing"
 # -------------------------
 def run_crouch_check():
     while True:
-        cmd = input("You must crouch. Type 'crouch': ").strip().lower()
+        cmd = input("You feel sukan presents you must 'crouch': ").strip().lower()
 
         if cmd != "crouch":
             print("You hesitate and Sukuna slashes you. GAME OVER 💀")
             return False
 
         print("Sukuna joins the battlefield.")
-        print("Your two choices are: Lower_Head or Run")
-        ans = input("Sukan \n  Your head is a bit high: ").strip()
+        print("Your two choices are: lower_head or Run")
+        ans = input("Sukan \n  Your head is a bit high: ").strip().lower()
 
-        if ans == "Lower_Head":
+        if ans == "lower_head":
             ans2 = input("Sukan speaks \n What is 9 + 10? 19 or 21: ").strip()
             if ans2 == "21":
                 print("You are pushed further into the waterfall.")
@@ -148,7 +164,6 @@ while True:
 
 
     if rooms[current_room].get("requires_crouch") and not rooms[current_room].get("crouched"):
-        print("Zombies are too close — you must crouch to sneak through!")
         if not run_crouch_check():
             break
         continue
