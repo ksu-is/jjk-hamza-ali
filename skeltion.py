@@ -1,5 +1,8 @@
-# Changing the code and story line to matach up with the plot in shibuya incdent and fixed the starting room 
-# trying to implemnet a system where player can telport home betray their friends but for doing that they die 
+#Fixing the  telport action so its useable button that can be used
+# got rid of every east option 
+# making the story and options the player can use flow better and more insince for a better flow 
+ 
+
 
 
 
@@ -9,7 +12,7 @@ Shibuya Incident Adventure
 
 ==============
 Commands:
-go [north/south/east/west], run,  exit
+go [north/south/teleport/west],  exit
 """ ) 
 
 def show_status():
@@ -36,33 +39,36 @@ def show_room_prompt():
 rooms = {
     "Shibuya Crossing": {
         "north": "Station Entrance",
-        "teleport ": "Portal Home",
-        "text": "You wake up in  Shibuya Crossing. Sirens blaring and  civilians screaming with a sweral of and cursed energy filing  the air hearing the unthinkable Gojo sator has been seeled. \n Head [north] so i can go to [north] to the station to find Save Gojo \n or i can [teleport] back home while pissing a way my honor my honer away "
+        "teleport": "Portal Home",
+        "text":"cursed spirts are everywhere and Satoru Gojo has been seeled. \nyou can Head [north] to the Station to Save Gojo \nor you can [teleport] back home if your to scared"
+
     },
     "Station Entrance": {
-        "text": "You reach the entrance of Shibuya Station. The pressure feels off. \n You think i can head north underground can [telport ]",
+        "text": "The pressure feels off. \n You think i can head north underground can [telport]",
         "north": "Underground Platform",
-        "teleport ": "Portal Home",
-        "south": "Flooded Tunnel"
+        "south": "Flooded Tunnel",
+        "teleport": "Portal Home"
+
     },
 
     "Underground Platform": {
         "text": "You step onto a dark underground platform. The lights flicker above you, and distant footsteps echo through the station.",
         "north": "Deep Tunnel",
         "south": "Flooded Tunnel",
-        "east": "Portal Home"
+        "teleport": "Portal Home"
     },
 
     "Deep Tunnel": {
         "text": "You move deeper into the station tunnels. The walls shake, and cursed energy grows heavier with every step.",
-        "east": "Portal Home",
-        "west": "Service Corridor"
+        "west": "Service Corridor",
+        "teleport": "Portal Home"
+
     },
 
     "Service Corridor": {
         "text": "A narrow service corridor runs beside broken train lines. The concrete is cracked, and the silence feels unnatural.",
         "south": "Flooded Tunnel",
-        "east": "Portal Home"
+        "telport": "Portal Home"
     },
 
     "Flooded Tunnel": {
@@ -80,13 +86,12 @@ rooms = {
 
     "Hidden Shelter": {
         "text": "Behind a broken wall, you find a hidden shelter where survivors are staying completely silent.",
-        "east": "Portal Home",
+        "teleport": "Portal Home",
         "special_actions": ["stay", "talk"]
     },
 
     "Portal Home": {
-         
-        
+           
          
     },
 
@@ -145,7 +150,7 @@ while True:
 
 
     if rooms[current_room].get("requires_crouch") and not rooms[current_room].get("crouched"):
-        print("Zombies are too close — you must crouch to sneak through!")
+        print("you must crouch")
         if not run_crouch_check():
             break
         continue
@@ -198,9 +203,6 @@ while True:
     # -------------------------
     # RUN OPTION
     # -------------------------
-    elif action == "run" and current_room == "Civilization Path":
-        print("\nYou sprint but the zombies are faster. GAME OVER 💀")
-        break
     
     # -------------------------
     # EXIT GAME
@@ -213,7 +215,7 @@ while True:
         print("Invalid command.\n")
 
     # -------------------------
-    # ATV CAVE DEATH WITHOUT KEY
+    # telporting home 
     # -------------------------
     if current_room == "Portal Home":
         print("You feel somthing sinester in your living room as you enter ")
