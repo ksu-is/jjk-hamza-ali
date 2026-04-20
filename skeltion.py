@@ -1,7 +1,4 @@
-#Fixing the  telport action so its useable button that can be used
-# got rid of every east option 
-# making the story and options the player can use flow better and more insince for a better flow 
- 
+# fix the plot where you can now see before where the north south will take you and what your options are 
 
 
 
@@ -44,7 +41,7 @@ rooms = {
 
     },
     "Station Entrance": {
-        "text": "The pressure feels off. \n You think i can head north underground can [telport]",
+        "text": "You stand at the Station Entrance and the pressure feels off.\nYou can go [north] deeper into the station toward the Underground Platform.\nYou can go [south] into the Flooded Tunnel.\nOr you can [teleport] back home.",
         "north": "Underground Platform",
         "south": "Flooded Tunnel",
         "teleport": "Portal Home"
@@ -52,40 +49,40 @@ rooms = {
     },
 
     "Underground Platform": {
-        "text": "You step onto a dark underground platform. The lights flicker above you, and distant footsteps echo through the station.",
+        "text": "You step onto a dark Underground Platform. The lights flicker and distant footsteps echo through the station.\nYou can go [north] into the Deep Tunnel.\nYou can go [south] toward the Flooded Tunnel.\nOr you can [teleport] back home.",
         "north": "Deep Tunnel",
         "south": "Flooded Tunnel",
         "teleport": "Portal Home"
     },
 
     "Deep Tunnel": {
-        "text": "You move deeper into the station tunnels. The walls shake, and cursed energy grows heavier with every step.",
+        "text": "You move deeper into the station tunnels. The walls shake and cursed energy grows heavier with every step.\nYou can go [west] into the Service Corridor.\nOr you can [teleport] back home.",
         "west": "Service Corridor",
         "teleport": "Portal Home"
 
     },
 
     "Service Corridor": {
-        "text": "A narrow service corridor runs beside broken train lines. The concrete is cracked, and the silence feels unnatural.",
+        "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can [teleport] back home.",
         "south": "Flooded Tunnel",
         "telport": "Portal Home"
     },
 
     "Flooded Tunnel": {
-        "text": "You are thrown into a flooded tunnel beneath Shibuya. Water crashes around your legs as danger closes in.",
+        "text": "You are thrown into a Flooded Tunnel beneath Shibuya. Water crashes around your legs as danger closes in.\nYou can go [west] toward the Escape Route.\nYou can go [south] toward the Hidden Shelter.\nBut first, you must crouch to survive.",
         "west": "Escape Route",
         "south": "Hidden Shelter",
         "requires_crouch": True
     },
 
     "Escape Route": {
-        "text": "You crawl into a damaged escape route lit only by emergency lights. A way out may be close.",
+        "text": "You crawl into a damaged Escape Route lit only by emergency lights.\nYou can go [west] to the Tokyo Street Exit.\nOr you can go [south] to the Hidden Shelter.",
         "west": "Tokyo Street Exit",
         "south": "Hidden Shelter"
     },
 
     "Hidden Shelter": {
-        "text": "Behind a broken wall, you find a hidden shelter where survivors are staying completely silent.",
+        "text": "Behind a broken wall, you find a Hidden Shelter where survivors are staying completely silent.\nYou can [stay] with them and remain hidden.\nYou can [talk] and risk making noise.\nOr you can [teleport] back home.",
         "teleport": "Portal Home",
         "special_actions": ["stay", "talk"]
     },
@@ -101,6 +98,7 @@ rooms = {
     }
     
 }
+
 
         
 
@@ -150,7 +148,7 @@ while True:
 
 
     if rooms[current_room].get("requires_crouch") and not rooms[current_room].get("crouched"):
-        print("you must crouch")
+        print("Zombies are too close — you must crouch to sneak through!")
         if not run_crouch_check():
             break
         continue
@@ -215,7 +213,7 @@ while True:
         print("Invalid command.\n")
 
     # -------------------------
-    # telporting home 
+    # telporting home
     # -------------------------
     if current_room == "Portal Home":
         print("You feel somthing sinester in your living room as you enter ")
