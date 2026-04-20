@@ -124,17 +124,14 @@ rooms = {
     "west": "Broken Passage"
     },
 
-    "Cursed Loop": {
+    "Cursed passage": {
     "text": "You swear you have seen these same cracks before. The tunnel is looping on itself.\nYou can go [west] back to the Shadow Hall.\nOr you can go [north] to the Broken Passage.",
     "west": "Shadow Hall",
     "north": "Broken Passage"
     },
     
     
-    "Death Room": {
-        "text": "something feels off"
-           
-    },
+    
 
     "Tokyo Street Exit": {
         "text": "You break through the final barrier and escape onto the outer streets of Tokyo. You survived Shibuya. 🏆",
