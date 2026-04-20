@@ -1,7 +1,6 @@
 
 
 
-
 #expand the game logic and make it a puzzel more like a puzzel, 
 # also  create diffrent rooms and make 
 # make it slightly like a maze
@@ -75,9 +74,10 @@ rooms = {
     },
 
     "Service Corridor": {
-        "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nOr you can go [teleport] back home.",
+        "text": "A narrow Service Corridor runs beside broken train lines. The silence here feels unnatural.\nYou can go [south] toward the Flooded Tunnel.\nYou can go [north] to a Unflooded Tunnel \nOr you can go [teleport] back home.",
         "south": "Flooded Tunnel",
-        "teleport": "Portal Home",
+        "north": "Unflooded Tunnel",
+        "teleport": "Portal Home"
         
     },
     
