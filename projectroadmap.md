@@ -23,13 +23,13 @@ Phase 2
 - go to make the story more linear and structurly sound  
 - made it to where if you go to the  wrong direction you die
 
-- [ x] 
+- [x] 
 
 - Phase 3
 Replace crouch puzzle with cutscene questions
 and pop up question have to awnser 
 
-- [x ] 
+- [x] 
 
 
 
