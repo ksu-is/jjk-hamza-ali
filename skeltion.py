@@ -1,4 +1,4 @@
-# fix the errors i cause d
+
 
 
 
@@ -163,7 +163,7 @@ def run_crouch_check():
 
         if cmd != "crouch":
             print("You hesitate and Sukuna slashes you. GAME OVER 💀")
-            return False
+            return None
 
         print("Sukuna appears. You can hardly breathe \nhis overwhelmingly evil presence peers into your soul..")
         print("Sukan speaks menecingly\nYour head is a bit high")
@@ -177,20 +177,20 @@ def run_crouch_check():
                     ans4 = input("Sukan speaks \n How many dragon balls are their 1,2,3,4,5,6 or 7")
                     if ans4 == "7": 
                         rooms[current_room]["crouched"] = True
-                        return "Escape Route"
+                        return  "Escape Route"
                 
                     else:
                         print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                        None 
+                        return None 
                 else:
                     print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                    None
+                    return None
             else:
                 print("Wrong answer. Sukuna slashes you. GAME OVER 💀")
-                None
+                return None
         else:
             print("Sukuna hits you with a cleave 💀")
-            None
+            return None
 
 
 # --------------------
