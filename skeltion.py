@@ -1,16 +1,4 @@
 
-
-
-#expand the game logic and make it a puzzel more like a puzzel, 
-# also  create diffrent rooms and make 
-# make it slightly like a maze
-# Make an edding cut sceen 
-#Try and make pictures 
- 
-
-
-
-
 def show_instructions():
     print ("""
            

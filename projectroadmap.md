@@ -4,82 +4,56 @@ Sprint 1: Project Initiation
 - [x] Search for related Python repositories for evaluation
 - [x] Clone and attempt to run an existing codebase: https://github.com/ksu-is/Text-Adventure-Game/blob/main/%23%20Text%20Adventure%20Game%20by%20Gabriela%20Alvare.py
 - [x] Document findings from evaluated code:
-  - [x] I cloned then ran it in Visual Studio Code
-  - [x] It didn’t give me any errors, but the input for the text adventure game would not push me to the next phase and I would get stuck in a loop
-  - [x] I need to check why this loop keeps occurring and why it doesn’t allow you to move on to the next room
-  - [x] found out it was the instructions being unclear what was required the code works but can be worked on to be more clear
+- [x] I cloned then ran it in Visual Studio Code
+- [x] It didn’t give me any errors, but the input for the text adventure game would not push me to the next phase and I would get stuck in a loop
+- [x] I need to check why this loop keeps occurring and why it doesn’t allow you to move on to the next room
+- [x] found out it was the instructions being unclear what was required the code works but can be worked on to be more clear
 
-Part: 2 
+sprint: 2 
  
- - [x] Phase 1
- 
-Simplify the old game:
-remove items
-remove special actions
-remove extra rooms
-keep only movement + ending
+ Phase 1 - Simplify the old game by
+ - [x] remove items   boat, key, other 
+ - [x] remove special actions 
+ - [x] remove extra rooms 
+ - [x] keep  movement + ending
  
 
 
 Phase 2 
-- go to make the story more linear and structurly sound  
-- made it to where if you go to the  wrong direction you die
-Done 
+- [x]  made the story more linear and structurly sounding  
+- [x]  i want to make it to where when you take a path you can see ahead in a sense 
+
+Phase 3
+- [x] removed the manual crouch not needed to start the cutsceen
+- [x] Replace crouch puzzle with cutscene where you must type the awnser
 
 
-- Phase 3
-Replace crouch puzzle with cutscene questions
-and pop up question have to awnser 
-Done
-
-- [x] 
-
-
-
-
-- [ ] Phase 4
-Rewrite all room names and story text into Shibuya style
-Done 
+Phase 4
+- [x] changed the story line rooms and options to match with jujust kisian shibuya style
+- [x] trying to implemnet a room where you can return home but just die if u dare to leave your friends
+- [x] fixed the teleportation so now it works while also having it replace east option for the players choice
 
 
 Phase 5
-# i need to fix the start so its smillar other opotion
-# i need to add go to the option choices 
-# i need to fix the  ---- how spacing works and looks
-Done 
+- [x] updated the code further to where the player now fully know what room before hand his direction taxs them
+- [x] fix the crouch cutsceen to where it not zombie based but know has sukan a charater in jjk to match the plot 
+- [x] i  fixed the loop error for the cut sceen where if you type wrong answer you can try again with now it kills you
+- [x] after the cut scean you now go to a new room 
 
 
-phase 6
-# i need to fix the loop error for the cut sceen 
-# i need to add the cut scean to where it push u to a new room 
+Phase 6
+- [x] fixed error that would break the game as you typed run for an options
+- [x]  i added  -------- so its easier for the user to know what to read 
+- [x] create new rooms to make the game bigger feel like a puzzle
 
-Done
+pahse 7
+- [x] expanded the game logic to where theirs now 4 questions that are asked
+- [x] I ran into an error that didnt allow the code to run it was an indentation error 
 
-phase 7
-fixed error that would break the game as you typed run for one of the options
-rewriting the script differentating somthing away 
-i added  -------- through code so it made the action more flowy
- i  fix the formate for hidden shelter
+Phase 8
+- [x] finially adding code or the option in the diction to go to the new rooms i made as an option for the player
+- [x] their was an error in the dictionary i used so i had change that fix it so the user can go to the room without an error
 
-
-phase 8 
-# i fixed the structuring and blocking for the text in the game
-# fix some spacing when it gives you instructions to be scentered 
-# now it should run 
-
-phase 9
-#expand the game logic and make it a puzzel more like a puzzel, 
-# expanded the game logic to include 
-
-phase 10 
-# expanded the game logic to where 
-# theirs now 4 questions that are asked 
-# but i ran into an error with the with code i fix 
-# i did this to make the game more interactive
-
-
-phase 11 
-fix the error that caused the 4 question not to run 
-one was a spacing error  another was an error where the their wasnt enough indentation
-a upper lowercase error 
-changing breaks to none
+Phase 9 
+- [x] i made some other changes throughout but these are the ones that came to mind
+and the ones i wrote down sorry:/
